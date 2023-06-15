@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" class="sr">
+  <head>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8" />
+    <title>上海</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <script>
+      ScrollReveal({
+        reset: true,
+        delay: 200,
+        distance: "0",
+        duration: 1000,
+        interval: 500,
+        opacity: 0,
+        scale: 0.1,
+      });
+    </script>
+    <script src="time.js"></script>
+    <style>
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+
+      /* Hide the images by default */
+      .mySlides {
+        display: none;
+      }
+
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      /* Number text (1/2 etc) */
+      .numbertext {
+        color: #ff679c;
+        font-size: calc(5px + 2wv);
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active,
+      .dot:hover {
+        background-color: #717171;
+      }
+
+      .mySlides:last-child {
+        display: block;
+      }
+
+      /* Fading animation */
+      .fade {
+        animation-name: fade;
+        animation-duration: 3s;
+        /* animation-iteration-count: infinite; */
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body onload="getShanghaiTime(); setInterval('getShanghaiTime()', 1000 )">
+    <header id="head">
+      <div class="welcome_text">
+        <h1 class="reveal load-hidden">上海</h1>
+        <div class="welcome">
+          <p>欢迎来到上海!</p>
+        </div>
+        <div class="down-arrow"></div>
+      </div>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-4 col-sm-12">
+          <ul id="nav">
+            <li id="cities" class="reveal load-hidden">
+              <a href="index.html">上海</a>
+            </li>
+            <li id="submenu-wrapper">
+              <ul id="submenu">
+                <li class="reveal load-hidden">
+                  <a href="shanghai_today.html">今天的上海</a>
+                </li>
+                <li class="reveal load-hidden">
+                  <a href="shanghai_past.html">以前的上海</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div id="content1" class="col-md-8 col-sm-12">
+          <h2 id="clock" class="reveal load-hidden"></h2>
+
+          <div id="overview">
+            <h3 class="reveal load-hidden section1">今天的上海</h3>
+
+            <div class="slideshow-container reveal load-hidden">
+              <!-- Full-width images with number and caption text -->
+              <div class="mySlides">
+                <div class="numbertext">1 / 2</div>
+                <img src="shanghai1.png" style="width: 100%" />
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">2 / 2</div>
+                <img src="shanghai2.JPG" style="width: 100%" />
+              </div>
+
+              <!-- Next and previous buttons -->
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br />
+
+            <!-- The dots/circles -->
+            <div style="text-align: center">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+
+            <script>
+              let slideIndex = 1;
+              showSlides(slideIndex);
+
+              // Next/previous controls
+              function plusSlides(n) {
+                showSlides((slideIndex += n));
+              }
+
+              // Thumbnail image controls
+              function currentSlide(n) {
+                showSlides((slideIndex = n));
+              }
+
+              function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {
+                  slideIndex = 1;
+                }
+                if (n < 1) {
+                  slideIndex = slides.length;
+                }
+                for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+              }
+            </script>
+
+            <div class="reveal load-hidden">
+              <p class="shanghai-today-overview">
+                <span>今天的上海是很热闹的地方。</span
+                ><span>现在每个人都生活在海洋之上。</span
+                ><span> 今天的上海有飞行汽车，因为下面全是海。 </span
+                ><span>电脑技术越来越好。</span
+                ><span>每个人上班或上课都坐飞行汽车。</span>
+                <span>电脑让人可以了解熊猫和其它动物说什么。</span
+                ><span>交通越 来越方便。</span
+                ><span>汽车可以变成包，这样不必找地方停车。</span
+                ><span>到处都有自动的行人街。</span>
+                <span>电脑现在可以做更多的工作， 人们可以多放松点儿。</span
+                ><span
+                  >在家，电脑可以做饭，打扫房子、帮忙刷牙、遛狗等等，所以人们可以做家务之外的
+                  东西。</span
+                ><span
+                  >人们可以去公园锻炼或与朋友一起去看电影，现在人们去玩的地方看起来比以前不同。</span
+                >
+                <span
+                  >除了让人多休
+                  息以外，电脑科技也让商业可以周末开张，让人们赚钱赚得更多了。</span
+                ><span
+                  >以前商店经常周末关门，现在连周末都 可以继续开着做生意。</span
+                >
+              </p>
+              <div class="videos">
+                <div class="video-container reveal load-hidden">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/vFRyxz2Agq8"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="video-container reveal load-hidden">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/HsjgGOPanGI"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="reveal load-hidden">
+      <p>Copyright &copy; by 2023 甄小娥，桌然，黄懿文，孟忆莲</p>
+    </footer>
+
+    <script>
+      ScrollReveal().reveal(".reveal");
+    </script>
+  </body>
+</html>

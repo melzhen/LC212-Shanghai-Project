@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="sr">
+  <head>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8" />
+    <title>上海</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script>
+      ScrollReveal({
+        reset: true,
+        delay: 200,
+        distance: "0",
+        duration: 1000,
+        interval: 500,
+        opacity: 0,
+        scale: 0.1,
+      });
+    </script>
+    <script src="time.js"></script>
+  </head>
+  <body>
+    <header id="head">
+      <div class="welcome_text">
+        <h1 class="reveal load-hidden">上海</h1>
+        <div class="welcome">
+          <p>欢迎来到上海!</p>
+        </div>
+
+        <video controls>
+          <source
+            src="shanghai.mp4"
+            width="450"
+            height="300"
+            type="video/mp4"
+          />
+        </video>
+
+        <!-- <iframe
+          src="https://www.veed.io/embed/f239fe57-3f32-46ba-8841-1900094deeb1"
+          width="450"
+          height="300"
+          frameborder="0"
+          title="Welcome to New Shanghai"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+        ></iframe> -->
+
+        <nav class="pages">
+          <a href="shanghai_today.html">今天的上海</a>
+          <a href="shanghai_past.html">以前的上海</a>
+        </nav>
+      </div>
+    </header>
+
+    <footer class="reveal load-hidden">
+      <p>Copyright &copy; by 2023 甄小娥，桌然，黄懿文，孟忆莲</p>
+    </footer>
+
+    <script>
+      ScrollReveal().reveal(".reveal");
+    </script>
+  </body>
+</html>
